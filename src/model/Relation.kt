@@ -1,8 +1,17 @@
 package com.realglasses.model
 
-class Relation(id: EntityID<Int>) : IntEntity(id) { // 2
-    companion object : IntEntityClass<Todo>(Todos)
-    var id by Todos.content
-    var name by Todos.done
+import org.jetbrains.exposed.dao.IntEntity
+import org.jetbrains.exposed.dao.IntEntityClass
+import org.jetbrains.exposed.dao.id.EntityID
+import org.jetbrains.exposed.dao.id.IntIdTable
+
+object Relation : IntIdTable() { // 1
+    val name = text("name").default("")
+}
+
+class RelationEntity(id: EntityID<Int>) : IntEntity(id) {
+    companion object : IntEntityClass<RelationEntity>(Relation)
+
+    var name by Relation.name
 
 }
