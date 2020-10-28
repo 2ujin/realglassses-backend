@@ -5,7 +5,7 @@ import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
 
-fun Routing.relation(service: RelationService) {
+fun Routing.relation() {
 
     route("relations") {
         get {
