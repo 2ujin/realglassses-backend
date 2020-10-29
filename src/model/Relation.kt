@@ -11,7 +11,5 @@ object Relation : IntIdTable() { // 1
 
 class RelationEntity(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<RelationEntity>(Relation)
-
     var name by Relation.name
-
 }
